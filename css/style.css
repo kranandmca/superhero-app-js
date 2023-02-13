@@ -1,4 +1,5 @@
-#main {
+#main,
+#searchDiv {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
