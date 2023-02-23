@@ -32,8 +32,6 @@ function appendSuperheroToList(superheroImg, superheroName) {
   <img src=${superheroImg} class="card-img-top" alt="..." />
   <div class="card-body" id="output">
   <h5 class="card-title">${superheroName}</h5>
-  <a href="#" class="btn btn-info"><i class="fa-regular fa-eye"></i></a>
-  <a id="favorite" style="display:none"  href="#" class="btn btn-info"><i class="fa-regular fa-heart"></i></a>
   </div>
 </div>
 `;

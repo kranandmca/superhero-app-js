@@ -20,6 +20,7 @@ function filterhero() {
   }
   if (foundHero.length > 0) {
     loader.style.display = 'none';
+
     showSearchList(foundHero);
   } else {
     console.log('no results');
@@ -29,20 +30,65 @@ function filterhero() {
 }
 
 const showSearchList = (data) => {
+  let favs = getFavs();
   searchDiv.innerHTML = '';
   data.forEach((dataItem) => {
     const superheroImg =
       dataItem.thumbnail.path + '.' + dataItem.thumbnail.extension;
     const superheroName = dataItem.name;
+    const id = dataItem.id;
     searchDiv.innerHTML += `
-    <div class="card" style="width: 10rem;margin:0.5rem ">
-    <img src=${superheroImg} class="card-img-top" alt="..." />
-    <div class="card-body" id="output">
-    <h5 class="card-title">${superheroName}</h5>
-    <a href="#" class="btn btn-info"><i class="fa-regular fa-eye"></i></a>
-    <a id="favorite"   href="#" class="btn btn-info"><i class="fa-regular fa-heart"></i></a>
+    <div class="card"  style="width: 15rem;margin:0.5rem ">
+    <img id="imghero" src=${superheroImg} class="card-img-top" alt="..." />
+    <div class="card-body" id=${id} >
+   
     </div>
   </div>
   `;
+    let option = document.getElementById(id);
+    if (favs.includes(id)) {
+      option.innerHTML = ` <h5  class="heroname" class="card-title">${superheroName}</h5>
+    <a onclick="removeFromFavourites(event);" class="btn btn-info favorite">Remove From Favorites</a>`;
+    } else {
+      option.innerHTML = ` <h5  class="heroname" class="card-title">${superheroName}</h5>
+    <a onclick="addToFavourites(event);" class="btn btn-info favorite">Add to Favorites</a>`;
+    }
   });
 };
+
+function addToFavourites(e) {
+  let id = e.target.parentElement.id;
+  let favs = getFavs();
+  if (!favs.includes(id)) {
+    favs.push(id);
+  }
+  localStorage.setItem('favHeros', JSON.stringify(favs));
+  e.target.innerHTML = 'Remove from favourites';
+  e.target.removeEventListener('click', addToFavourites);
+  e.target.addEventListener('click', removeFromFavourites);
+}
+
+// remove a hero from favourites
+function removeFromFavourites(e) {
+  let id = e.target.parentElement.id;
+  let favs = getFavs();
+
+  let updatedFavs = favs.filter(function (val) {
+    return val != id;
+  });
+  localStorage.setItem('favHeros', JSON.stringify(updatedFavs));
+  e.target.innerHTML = 'Add to favourites';
+  e.target.removeEventListener('click', removeFromFavourites);
+  e.target.addEventListener('click', addToFavourites);
+}
+
+// retrieve a list of favourite hero id's from local storage
+function getFavs() {
+  let favs;
+  if (localStorage.getItem('favHeros') === null) {
+    favs = [];
+  } else {
+    favs = JSON.parse(localStorage.getItem('favHeros'));
+  }
+  return favs;
+}

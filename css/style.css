@@ -4,3 +4,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
+#favorite {
+  display: flex;
+  flex-wrap: wrap;
+}
