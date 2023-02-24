@@ -43,7 +43,7 @@ const showSearchList = (data) => {
     searchDiv.innerHTML += `
     <div   class="card"  style="width: 15rem;margin:0.5rem ">
     <div class="card-body" id=${id}>
-    <img  id="imghero" src=${superheroImg}  onclick="superhero(event);" class="card-img-top" alt="..." />
+    <img  id="imghero" src=${superheroImg}  onclick="superhero(event);" class="card-img-top cursor-pointer" alt="..." />
 
     </div>
   </div>

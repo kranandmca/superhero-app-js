@@ -9,6 +9,3 @@
   display: flex;
   flex-wrap: wrap;
 }
-#imghero:hover {
-  cursor: pointer;
-}
