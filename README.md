@@ -31,11 +31,11 @@ Create a Superhero Hunter app.
 # Tools used for hosting
 - Git
 # Live project Link
-https://kranandmca.github.io/todo-app-js
+https://kranandmca.github.io/superhero-app-js/
 
 # Steps to set project locally[Windows]
 - Go to terminal. Run below command:
-    git clone https://kranandmca.github.io/todo-app-js
+    git clone https://github.com/kranandmca/superhero-app-js.git
 
  # Your project is set up . Go to superhero-app-js folder and open index.html file in browser.
 
