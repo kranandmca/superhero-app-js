@@ -20,17 +20,19 @@ const getSuperheroList = async () => {
       superhero.thumbnail.path + '.' + superhero.thumbnail.extension;
     const superheroName = superhero.name;
 
-    appendSuperheroToList(superheroImg, superheroName);
+    appendSuperheroToList(superheroImg, superheroName, superhero.id);
     loader.style.display = 'none';
     main.style.display = 'flex';
   });
 };
 getSuperheroList();
-function appendSuperheroToList(superheroImg, superheroName) {
+function appendSuperheroToList(superheroImg, superheroName, id) {
+  let path = `${window.location.pathname} + /../superhero.html#id=${id}`;
+
   main.innerHTML += `
   <div class="card" style="width: 10rem;margin:0.5rem ">
+  <div class="card-body"   >
   <img src=${superheroImg} class="card-img-top" alt="..." />
-  <div class="card-body" id="output">
   <h5 class="card-title">${superheroName}</h5>
   </div>
 </div>

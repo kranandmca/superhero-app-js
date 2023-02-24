@@ -31,26 +31,27 @@ function filterhero() {
 
 const showSearchList = (data) => {
   let favs = getFavs();
+
   searchDiv.innerHTML = '';
   data.forEach((dataItem) => {
     const superheroImg =
       dataItem.thumbnail.path + '.' + dataItem.thumbnail.extension;
     const superheroName = dataItem.name;
-    const id = dataItem.id;
+    let id = dataItem.id;
     searchDiv.innerHTML += `
-    <div class="card"  style="width: 15rem;margin:0.5rem ">
-    <img id="imghero" src=${superheroImg} class="card-img-top" alt="..." />
-    <div class="card-body" id=${id} >
-   
+    <div   class="card"  style="width: 15rem;margin:0.5rem ">
+    <div class="card-body" id=${id}>
+    <img id="imghero" src=${superheroImg}  onclick="superhero(event);" class="card-img-top" alt="..." />
+
     </div>
   </div>
   `;
     let option = document.getElementById(id);
-    if (favs.includes(id)) {
-      option.innerHTML = ` <h5  class="heroname" class="card-title">${superheroName}</h5>
+    if (favs.includes(id.toString())) {
+      option.innerHTML += ` <h5  class="heroname" class="card-title">${superheroName}</h5>
     <a onclick="removeFromFavourites(event);" class="btn btn-info favorite">Remove From Favorites</a>`;
     } else {
-      option.innerHTML = ` <h5  class="heroname" class="card-title">${superheroName}</h5>
+      option.innerHTML += ` <h5  class="heroname" class="card-title">${superheroName}</h5>
     <a onclick="addToFavourites(event);" class="btn btn-info favorite">Add to Favorites</a>`;
     }
   });
@@ -91,4 +92,10 @@ function getFavs() {
     favs = JSON.parse(localStorage.getItem('favHeros'));
   }
   return favs;
+}
+
+function superhero(e) {
+  let id = e.target.parentElement.id;
+
+  location.href = 'superhero.html?id=' + id;
 }

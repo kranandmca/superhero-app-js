@@ -50,7 +50,6 @@ function getFavs() {
   return favs;
 }
 
-// remove from favourites and remove the node from dom
 // remove a hero from favourites
 function removeFromFavourites(e) {
   let id = e.target.parentElement.id;

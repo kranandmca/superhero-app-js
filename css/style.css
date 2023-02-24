@@ -1,11 +1,11 @@
-#main,
-#searchDiv {
+#main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
-#favorite {
+#favorite,
+#searchDiv {
   display: flex;
   flex-wrap: wrap;
 }
