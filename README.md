@@ -2,7 +2,7 @@
 # superhero-app-js
 
 # Overview
-Create a Todolist app.
+Create a Superhero Hunter app.
 # Functionalties
 ●	Home Page
 - Fetch and display a list of SuperHeros (Characters) on the home page. Also create a search bar that will filter out the character based on search query. Suppose I type “bat” in the search box, it should show “batman”. 
