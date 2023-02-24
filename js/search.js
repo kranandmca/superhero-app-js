@@ -3,6 +3,7 @@ const mainDiv = document.getElementById('main');
 const searchDiv = document.getElementById('searchDiv');
 search.addEventListener('keyup', filterhero);
 
+// Filter superhero
 function filterhero() {
   mainDiv.style.display = 'none';
   loader.style.display = 'block';
@@ -29,6 +30,7 @@ function filterhero() {
   }
 }
 
+// Show Search result of super hero
 const showSearchList = (data) => {
   let favs = getFavs();
 
@@ -57,6 +59,7 @@ const showSearchList = (data) => {
   });
 };
 
+// Add to favorite superhero list
 function addToFavourites(e) {
   let id = e.target.parentElement.id;
   let favs = getFavs();
@@ -94,6 +97,7 @@ function getFavs() {
   return favs;
 }
 
+// go to superhero page on click
 function superhero(e) {
   let id = e.target.parentElement.id;
 

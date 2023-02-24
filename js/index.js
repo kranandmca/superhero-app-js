@@ -4,7 +4,7 @@ const hash = 'cd07a618bf10905245ca5217773722a2';
 let main = document.querySelector('#main');
 const loader = document.querySelector('.spinner-border');
 
-// Fetch superhero list
+// Fetch all superhero list
 const getSuperheroList = async () => {
   main.style.display = 'none';
   const response = await fetch(
@@ -26,6 +26,7 @@ const getSuperheroList = async () => {
   });
 };
 getSuperheroList();
+// Append content for all supeheros
 function appendSuperheroToList(superheroImg, superheroName, id) {
   let path = `${window.location.pathname} + /../superhero.html#id=${id}`;
 

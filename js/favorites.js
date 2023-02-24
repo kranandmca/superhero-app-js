@@ -4,7 +4,7 @@ const hash = 'cd07a618bf10905245ca5217773722a2';
 let main = document.querySelector('#favorite');
 const loader = document.querySelector('.spinner-border');
 
-// Fetch superhero list
+// Fetch favorite superhero list
 const getFavList = async () => {
   let favs = getFavs();
   main.style.display = 'none';
@@ -26,7 +26,9 @@ const getFavList = async () => {
   loader.style.display = 'none';
   main.style.display = 'flex';
 };
+
 getFavList();
+// Append html content for favorite superhero list
 function appendSuperheroFavList(superheroImg, superheroName, id) {
   main.innerHTML += `
   <div  class="card" style="width: 15rem;margin:0.5rem ">

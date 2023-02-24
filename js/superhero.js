@@ -5,8 +5,8 @@ let main = document.querySelector('#hero');
 let info = document.querySelector('#info');
 const loader = document.querySelector('.spinner-border');
 
-// Fetch superhero list
-const getFavList = async () => {
+// Fetch  superhero list
+const getSuperhero = async () => {
   main.style.display = 'none';
   loader.style.display = 'block';
   const queryString = window.location.search;
@@ -34,7 +34,8 @@ const getFavList = async () => {
   loader.style.display = 'none';
   main.style.display = 'flex';
 };
-getFavList();
+getSuperhero();
+// Append html content for superhero
 function appendSuperheroFavList(superheroImg, superheroName, id, superhero) {
   main.innerHTML += `
   <div  class="card" style="width: 15rem;margin:0.5rem;height:400px; ">
